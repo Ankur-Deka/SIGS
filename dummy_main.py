@@ -13,5 +13,5 @@ if __name__ == '__main__':
 	data = args.num1*args.num2
 	
 	# -------- You'd need to return data -------- #
-	sys.exit(data)
-
+	# sys.exit(data)
+	
