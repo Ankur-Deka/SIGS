@@ -30,6 +30,7 @@ class GridSearch():
 				l = list(np.linspace(low, high, num))
 				self.args[param] = l
 			
+			
 		# -------- get list of all configurations -------- #
 		arg_names = []
 		config_list = []	# separate list for each argument
