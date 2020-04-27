@@ -8,13 +8,17 @@ class GridSearch():
 	def __init__(self, main_file, args, num_process = 2):
 		self.main_file = main_file
 		self.args = args
+		self.arg_names = args.keys()
 		self.num_process = num_process
 
 	def call_main(self, args_list):
 		for args in args_list:
-			print('args', args)
-			num1, num2 = args
-			cmd = 'python {} --num1 {} --num2 {}'.format(self.main_file, num1, num2)
+			# -------- generate string of arguments -------- #
+			args_string = ''
+			for i,arg_name in enumerate(self.arg_names):
+				args_string += ' --{} {}'.format(arg_name, args[i])
+
+			cmd = 'python {}{}'.format(self.main_file, args_string)
 			print('cmd', cmd)
 			os.system(cmd)
 			
@@ -32,11 +36,9 @@ class GridSearch():
 			
 			
 		# -------- get list of all configurations -------- #
-		arg_names = []
 		config_list = []	# separate list for each argument
-		for param,val in self.args.items():
-			arg_names.append(param)
-			config_list.append(val) 
+		for arg_name in self.arg_names:
+			config_list.append(self.args[arg_name]) 
 		args_list = list(itertools.product(*config_list))
 		
 

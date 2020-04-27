@@ -6,7 +6,7 @@ main_file = 'dummy_main.py'
 
 # -------- define dictionary of arguments for grid search -------- #
 args = {'num1': [2,5,6],
-		'nums2': {'min':1, 'max':2, 'num': 5}}
+		'num2': {'min':1, 'max':2, 'num': 5}}
 
 # -------- create GridSearch object and run -------- #
 myGridSearch = GridSearch(main_file, args, num_process=2)
