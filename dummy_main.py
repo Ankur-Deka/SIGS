@@ -1,6 +1,7 @@
 import sys
 import argparse
 import time
+from grid_search import insert_to_csv
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser('Parse dummy arguments')
@@ -10,8 +11,8 @@ if __name__ == '__main__':
 	print(args)
 
 	# -------- This is where you'd do you calculation -------- #
-	data = args.num1*args.num2
+	data = [args.num1, args.num2, args.num1*args.num2]
 	
-	# -------- You'd need to return data -------- #
-	# sys.exit(data)
-	
+	# -------- Call compile_func -------- #
+	insert_to_csv('test.csv', data)
+

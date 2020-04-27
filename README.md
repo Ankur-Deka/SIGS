@@ -7,8 +7,7 @@ This script will help you run grid search on any python script.
 # File structure
 Your code should include the following elements:
 1. A main file which accepts arguments with argparse. Let's call is `main.py`.
-1. The `main.py` can return a data, eg. accuracy, that you would like to compile across runs for different hyperparameter configuration. There is a file `dummy_main.py` that you can use for reference.
-2. A function to compile the data returned by `main.py`, let's call it `compile_func`. This function should be able to take the data points iteratively. An simple function called is already provided and can be imported as `from grid_search import insert_to_csv`. If you don't wish to compile, this can be `None`.
+1. A function to compile the data returned by `main.py`, let's call it `compile_func`. This function should be able to take the data points iteratively. You'd have to call this from `main.py` A simple function called is already provided and can be imported as `from grid_search import insert_to_csv`. If you don't wish to compile, this can be `None`.
 
 # Instructions
 I will walk you through a demo run as described in `dummy_run.py` to explain you the 3 steps for integrating SIGS with your code. Open the file and read the following description. You can use this file as a template. 
