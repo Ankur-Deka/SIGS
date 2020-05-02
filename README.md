@@ -18,7 +18,7 @@ It it best to open `dummy_run.py` as the library is quite intuitive and simple t
 1. Define arguments for running grid search:
 	1. For every parameter you'd need one key containing it's name
 	1. Each key can either be a list of all values of that parameter
-	1. Or each key can be a dictionary with keys {'min', 'max', 'num'} if you wish to uniformly choose values in a range 
+	1. Or each key can be a dictionary with keys {'min', 'max', 'num', 'scale'} if you wish to uniformly choose values in a range. 'scale' can be 'linear' or 'log'. For log scale 'min' and 'max' should be the powers of 10. Eg. for 1e-1 to 1e3, 'min'=-1 and 'max'=3 
 1. Create an object of `GridSearch`. `myGridSearch = GridSearch(main_file, compile_func, args, num_process=2)`
 1. Run grid search with `myGridSearch.run()` 
 

@@ -30,10 +30,13 @@ class GridSearch():
 			if not (type(val) is dict or type(val) is list):
 				raise ValueError('args should be a list or dictionary. Please refer to README')
 			if type(val) is dict:
-				low, high, num = val['min'], val['max'], val['num']
-				l = list(np.linspace(low, high, num))
-				self.args[param] = l
-			
+				low, high, num, scale = val['min'], val['max'], val['num'], val['scale']
+				if scale == 'linear':
+					l = list(np.linspace(low, high, num))
+					self.args[param] = l
+				elif scale == 'log':
+					l = list(np.logspace(low, high, num))
+					self.args[param] = l
 			
 		# -------- get list of all configurations -------- #
 		config_list = []	# separate list for each argument
