@@ -15,13 +15,19 @@ class GridSearch():
 		for args in args_list:
 			# -------- generate string of arguments -------- #
 			args_string = ''
+			exp_name = ''
 			for i,arg_name in enumerate(self.arg_names):
-				args_string += ' --{} {}'.format(arg_name, args[i])
-
+				if arg_name == 'algo':
+					args_string += ' {} '.format(args[i])
+				else:
+					args_string += ' --{} {}'.format(arg_name, args[i])
+				exp_name += '_{}'.format(args[i])
+			
+			args_string += ' --exp_name {}'.format(exp_name)
 			cmd = 'python {}{}'.format(self.main_file, args_string)
 			print('cmd', cmd)
 			os.system(cmd)
-			
+
 	def run(self):
 		print('Get yourself a cup of coffee while I run grid search')
 		
