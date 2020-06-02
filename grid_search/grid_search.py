@@ -47,10 +47,11 @@ class GridSearch():
 
 		# -------- divide into equal parts and run -------- #
 		num_configs = len(args_list)
+		num_process = min(num_configs, self.num_process)
 		IDs = np.array_split(np.arange(num_configs), self.num_process)
 		process_list = []
 		
-		for i in range(self.num_process):
+		for i in range(num_process):
 			args_list_process = [args_list[ID] for ID in IDs[i]]
 			x = multiprocessing.Process(target=self.call_main, args=(args_list_process,))
 			x.start()
