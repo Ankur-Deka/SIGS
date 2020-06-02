@@ -48,7 +48,7 @@ class GridSearch():
 		# -------- divide into equal parts and run -------- #
 		num_configs = len(args_list)
 		num_process = min(num_configs, self.num_process)
-		IDs = np.array_split(np.arange(num_configs), self.num_process)
+		IDs = np.array_split(np.arange(num_configs), num_process)
 		process_list = []
 		
 		for i in range(num_process):
